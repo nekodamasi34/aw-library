@@ -26,9 +26,9 @@ public:
     _targetRotation < 0 ? _targetRotation *= -1 : _targetRotation;
 
     _wheel[0] = sin(_targetRotation) / cos(_targetRotation) * _targetSpeed - _turn;
-    _wheel[1] = cos(_targetRotation) / sin(_targetRotation) * _targetSpeed + _turn;
+    _wheel[1] = cos(_targetRotation) / sin(_targetRotation) * _targetSpeed + _turn * -1;
     _wheel[2] = cos(_targetRotation) / sin(_targetRotation) * _targetSpeed - _turn;
-    _wheel[3] = sin(_targetRotation) / cos(_targetRotation) * _targetSpeed + _turn;
+    _wheel[3] = sin(_targetRotation) / cos(_targetRotation) * _targetSpeed + _turn * -1;
   }
 
   double getSpeed(int unit) {

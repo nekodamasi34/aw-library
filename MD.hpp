@@ -10,7 +10,7 @@ public:
   MD(PinName pwm_pin, PinName dir_pin, bool reverse)
     : pwm(pwm_pin), dir(dir_pin), reverse(reverse)  //(pwmピン, dirピン, 逆転モード)
   {
-    pwm.period(1/ 20000);
+    pwm.period(1/ 20000); // PWM 20kHz
   };
 
   void drive(float power)

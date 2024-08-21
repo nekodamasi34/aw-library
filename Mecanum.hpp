@@ -8,20 +8,20 @@ class Mecanum {
 
 private:
 
-  const double PI = 3.141592653589;
+  const float PI = 3.1415;
 
-  double _targetSpeed;
-  double _targetRotation;
-  double _wheel[4];
+  float _targetSpeed;
+  float _targetRotation;
+  float _wheel[4];
 
 public:
 
   Mecanum()
   {};
 
-  void control(double _joyXValue, double _joyYValue, double _turn)
+  void control(float _joyXValue, float _joyYValue, float _turn)
   {
-    _targetSpeed    = sqrt( (_joyXValue ^2) + (_joyYValue ^2) );
+    _targetSpeed    = sqrt( (_joyXValue * _joyXValue) + (_joyYValue * _joyYvalue) );
     _targetRotation = atan2(_joyYValue, _joyXValue) - (PI /4);
     _targetRotation < 0 ? _targetRotation *= -1 : _targetRotation;
 
@@ -31,9 +31,9 @@ public:
     _wheel[3] = sin(_targetRotation) / cos(_targetRotation) * _targetSpeed + _turn * -1;
   }
 
-  double getSpeed(int unit) {
+  float getSpeed(int unit) {
     if(unit < 0 || unit > 3) {
-      return 0.0;
+      return 0.0f;
     }
     return _wheel[unit];
   }

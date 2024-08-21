@@ -16,7 +16,7 @@
     - in3_pin: Motor 2 Forward pin
     - in4_pin: Motor 2 Reverse pin
 
-    @author Your Name
+    @author awttenani
 */
 class MD_mini
 {
@@ -40,14 +40,6 @@ public:
     MD_mini(PinName in1_pin, PinName in2_pin, bool reverse1, PinName in3_pin, PinName in4_pin, bool reverse2);
 
     /*!
-     * @brief Drive both motors simultaneously.
-     *
-     * @param power1 Power level for motor 1 (range: -1.0 to 1.0).
-     * @param power2 Power level for motor 2 (range: -1.0 to 1.0).
-     */
-    void drive_both(float power1, float power2);
-
-    /*!
      * @brief Drive only motor 1.
      *
      * @param power1 Power level for motor 1 (range: -1.0 to 1.0).
@@ -60,6 +52,14 @@ public:
      * @param power2 Power level for motor 2 (range: -1.0 to 1.0).
      */
     void drive_2(float power2);
+
+    /*!
+     * @brief Drive both motors simultaneously.
+     *
+     * @param power1 Power level for motor 1 (range: -1.0 to 1.0).
+     * @param power2 Power level for motor 2 (range: -1.0 to 1.0).
+     */
+    void drive_both(float power1, float power2);
 
     /*!
      * @brief Stop both motors.
@@ -85,6 +85,9 @@ private:
 
     //! Stores the PWM signal values for both motors.
     float pwm1, pwm2;
+
+    //! Stores power signal values.
+    float conf_power;
 
     //! Reverse flags for both motors.
     bool reverse1, reverse2;
